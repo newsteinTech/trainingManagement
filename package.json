@@ -1,0 +1,19 @@
+{
+  "name": "trainingmanagement",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/newsteinTech/trainingManagement.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/newsteinTech/trainingManagement/issues"
+  },
+  "homepage": "https://github.com/newsteinTech/trainingManagement#readme"
+}
