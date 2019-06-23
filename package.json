@@ -1,20 +1,23 @@
 {
   "name": "trainingmanagement",
   "version": "1.0.0",
-  "description": "",
+  "description": "This is a training management service providing generic features for a training company",
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "start":"tsc && node ./dist/server.js"
+    "start": "tsc && nodemon ./dist/server.js"
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/newsteinTech/trainingManagement.git"
+    "url": "git+https://github.com/rameshyuvaraj/TrainingManagement.git"
   },
+  "keywords": [
+    "TrainingManagement"
+  ],
   "author": "",
   "license": "ISC",
   "bugs": {
-    "url": "https://github.com/newsteinTech/trainingManagement/issues"
+    "url": "https://github.com/rameshyuvaraj/TrainingManagement/issues"
   },
   "homepage": "https://github.com/newsteinTech/trainingManagement#readme",
   "dependencies": {
