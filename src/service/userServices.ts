@@ -1,12 +1,12 @@
 import express = require("express");
-import {superAdminModel} from "./../modal/superAdminModal";
-import jwt = require("jsonwebtoken");
+import {userModel} from "./../modal/userModal";
+import * as jwt from "jsonwebtoken";
 import bcrypt = require("bcrypt");
-export class SuperAdminService{
-    public static async getAllSuperAdmin(req: express.Request, res: express.Response){
+export class UserService{
+    public static async getAllUser(req: express.Request, res: express.Response){
         try{
-            let allSuperAdmin = await superAdminModel.find().exec();
-            return allSuperAdmin;
+            let allUser = await userModel.find().exec();
+            return allUser;
         }
         catch(err){
             console.log(err);
@@ -14,10 +14,10 @@ export class SuperAdminService{
         }
     }
 
-    public static async getSuperAdminById(req: express.Request, res: express.Response){
+    public static async getUserById(req: express.Request, res: express.Response){
         try{
-            let getSuperAdmin = await superAdminModel.findById(req.params.id).exec();
-            return getSuperAdmin;
+            let getUser = await userModel.findById(req.params.id).exec();
+            return getUser;
         }
         catch(err){
             console.log(err);
@@ -25,28 +25,49 @@ export class SuperAdminService{
         }
     }
 
-    public static async updateSuperAdminById(req:express.Request, res:express.Response){
+    public static async updateUserById(req:express.Request, res:express.Response){
         try {
-            let updateSuperAdminById:any = await superAdminModel.findById(req.params.id).exec();
-            updateSuperAdminById.name = req.body.name;
-            updateSuperAdminById.sex = req.body.sex;
-            updateSuperAdminById.dob = req.body.dob;
-            updateSuperAdminById.bio = req.body.bio;
-            updateSuperAdminById.movieProduced = req.body.movieProduced;
-            await updateSuperAdminById.save();
-            return updateSuperAdminById;
+            let updateUserById: any = await userModel.findById(req.params.id).exec();
+            console.log(updateUserById);
+            updateUserById.name = req.body.name;
+            updateUserById.mobile = req.body.mobile;
+            updateUserById.active = req.body.active;
+            await updateUserById.save();
+            return updateUserById;
         } catch (err) {
             console.log(err);
             return err;            
         }
     }
     
-    public static async createSuperAdmin(req:express.Request, res:express.Response){
+    public static async createUser(req:express.Request, res:express.Response){
         try{
-            let createSuperAdmin = new superAdminModel(req.body);
-            await createSuperAdmin.save();
-            return createSuperAdmin;
+            let encyptPassword = await bcrypt.hash(req.body.password, 12);
+            req.body.password = encyptPassword;
+            let createUser = new userModel(req.body);
+            await createUser.save();
+            return createUser;
         }catch(err){
+            console.log(err);
+            return err;
+        }
+    }
+
+    public static async getUsersAllCard(req:any, res:express.Response){
+        try {
+            let getUsersAllCard = await userModel.find({_id:req.user.userId}).populate('myCards').exec();
+            return getUsersAllCard;
+        } catch (err) {
+            console.log(err);
+            return err;
+        }
+    }
+
+    public static async assignCardsToUser(req:any, res:express.Response){
+        try {
+            let assignCardsToUser = await userModel.update({_id:req.user.userId},req.body).exec();
+            return assignCardsToUser;
+        } catch (err) {
             console.log(err);
             return err;
         }
@@ -55,7 +76,7 @@ export class SuperAdminService{
     public static async login(req: express.Request, res: express.Response){
         try {
             //Check use exist -> by email
-            let user:any = await superAdminModel.findOne({"email":req.body.email}).exec();
+            let user:any = await userModel.findOne({"email":req.body.email}).exec();
             console.log(user);
             if(user){
                 //Check password match or not

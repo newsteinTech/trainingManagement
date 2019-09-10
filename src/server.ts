@@ -3,7 +3,7 @@ import * as bodyParser from "body-parser";
 import * as mongoClient from "mongoose";
 import { Request, Response } from "express";
 import {Database} from "./startup/db";
-import { Routes} from './startup/routes'
+import { Routes} from './startup/routes';
 
 class App {
     app: express.Application;
@@ -17,7 +17,7 @@ class App {
         });
         
 
-        Routes.registerRoutes(this.app);
+        Routes.configRoutes(this.app);
     }
 
     private configBodyParser() {
@@ -28,4 +28,4 @@ class App {
     
 }
 
-const trainingManagementApp = new App();
+export const trainingManagementApp = new App();
