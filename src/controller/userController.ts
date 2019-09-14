@@ -27,14 +27,4 @@ export class UserController{
         let result = await UserService.login(req,res);
         res.json(result);
     }
-
-    public async getUsersAllCard(req: express.Request, res: express.Response){
-        let result = await UserService.getUsersAllCard(req,res);
-        res.json(result);
-    }
-
-    public async assignCardsToUser(req: express.Request, res: express.Response){
-        let result = await UserService.assignCardsToUser(req,res);
-        res.json(result);
-    }
 }
