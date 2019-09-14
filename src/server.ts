@@ -9,7 +9,12 @@ class App {
     app: express.Application;
     constructor() {
         //Express instance Creation
-        this.app = express();
+        this.app = express();        
+        this.app.use(function(req, res, next) {
+            res.header("Access-Control-Allow-Origin", "*");
+            res.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept");
+            next();
+        });
         this.configBodyParser();
         Database.connectMongoDb();
         this.app.listen(4000,"localhost",function(){

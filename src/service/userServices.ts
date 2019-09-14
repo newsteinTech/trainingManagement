@@ -76,11 +76,12 @@ export class UserService{
     public static async login(req: express.Request, res: express.Response){
         try {
             //Check use exist -> by email
-            let user:any = await userModel.findOne({"email":req.body.email}).exec();
+            console.log(req.body);
+            let user:any = await userModel.findOne({"email":req.body.useremail}).exec();
             console.log(user);
             if(user){
                 //Check password match or not
-                let passwordMatched = await bcrypt.compare(req.body.password, user.password);
+                let passwordMatched = await bcrypt.compare(req.body.userpassword, user.password);
                 if(passwordMatched){
                     let options:jwt.SignOptions = {
                         //by default it has behaviour of 365 days
@@ -93,11 +94,13 @@ export class UserService{
                     let payload = {
                         "email" : user.email,
                         "name" : user.name,
-                        "userId" : user._id
+                        "userId" : user._id,
+                        "role" : user.role
                     }
 
                     let token = await jwt.sign(payload,"secretkey",options);
-                    return {"token" : token} ;
+                    return {"token" : token,
+                            "detail" : payload} ;
                     // "login success";
                 }
                 else{

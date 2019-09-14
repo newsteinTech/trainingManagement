@@ -19,7 +19,7 @@ export class Routes{
         app.post('/register', userControllerObj.createUser);
         app.post('/login',userControllerObj.login);
 
-        app.use(AuthenticateService.authenticate); //all thosa url which we want to authenticate it will come below of line or vice-versa
+        app.use(AuthenticateService.authenticate); //all those url which we want to authenticate it will come below of line or vice-versa
         
         app.use('/admin',AdminRoutes);
         app.use('/student',StudentRoutes);
