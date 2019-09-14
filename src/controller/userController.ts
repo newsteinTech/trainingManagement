@@ -1,5 +1,5 @@
 import * as express from "express";
-import { UserServices } from "services/userServices";
+import { UserServices } from "../services/userServices";
 
 export class userController{
     public async registerUser(req:express.Request, res:express.Response){

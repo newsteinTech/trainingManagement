@@ -1,6 +1,6 @@
 import * as express from "express";
-import { userController } from "controller/userController";
-import { AuthenticationService } from "middleware/authentication";
+import { userController } from "../controller/userController";
+import { AuthenticationService } from "../middleware/authentication";
 import {userRoutes} from '../routes/userRoutes'
 export class Routes {
     
