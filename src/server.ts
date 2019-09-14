@@ -1,6 +1,5 @@
 import  * as express from "express";
 import * as bodyParser from "body-parser";
-import * as mongoClient from "mongoose";
 import { Request, Response } from "express";
 import {Database} from "./startup/db";
 import { Routes} from './startup/routes'
