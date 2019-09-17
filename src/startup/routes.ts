@@ -2,6 +2,7 @@ import * as express from "express";
 import { userController } from "../controller/userController";
 import { AuthenticationService } from "../middleware/authentication";
 import {userRoutes} from '../routes/userRoutes'
+import { trainerRoutes } from "routes/trainerRoutes";
 export class Routes {
     
     constructor() {
@@ -11,7 +12,8 @@ export class Routes {
     public static registerRoutes(app: express.Application) {
 
         app.get('/', (req: any, res: any) => {
-            return res.send("Server Started...");
+            return res.status(200)
+            .json({"Success!!":"Server Started..."});
         });
 
         let userControllerobj = new userController;
@@ -19,5 +21,6 @@ export class Routes {
         app.post('/login', userControllerobj.login);
         app.use(AuthenticationService.authenticate);
         app.use('/user', userRoutes);
+        app.use('/trainer', trainerRoutes)
     }
 }

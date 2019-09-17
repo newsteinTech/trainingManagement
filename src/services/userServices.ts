@@ -53,8 +53,15 @@ export class UserServices {
     }
 
     public static async getUser(req:express.Request, res:express.Response){
-        let user = await userModel.findOne(req.body.email).exec();
-        return user;
+        try{
+            let user = await userModel.findById(req.params.userId).exec();
+            return user;
+        }
+        catch(err){
+            console.log(err);
+            return err;
+        }
+        
     }
     public static async updateUser(req: express.Request, res: express.Response) {
         try {

@@ -6,6 +6,6 @@ let userControllerObj = new userController;
 export const userRoutes : Router = Router();
 
 userRoutes.get('/getAllUsers', userControllerObj.getAllUsers);
-userRoutes.get('/getUser', userControllerObj.getUser)
-userRoutes.put('/update', userControllerObj.updateUser);
-userRoutes.put('/delete', userControllerObj.deleteUser);
+userRoutes.get('/getUser/:userId', userControllerObj.getUser)
+userRoutes.put('/update/:userId', userControllerObj.updateUser);
+userRoutes.put('/delete/:userId', userControllerObj.deleteUser);
