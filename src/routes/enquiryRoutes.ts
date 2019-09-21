@@ -1,0 +1,10 @@
+import { Router } from "express";
+import { EnquiryController } from "controller/enquiryController";
+
+export const enquiryRoutes: Router = Router()
+
+let enquiryControllerObj = new EnquiryController;
+
+enquiryRoutes.get('/allEnquiries', enquiryControllerObj.getAllEnquiries);
+enquiryRoutes.get('/getEnuiry/:enquiryId', enquiryControllerObj.getEnquiryById);
+enquiryRoutes.put('/deleteEnquiry/:enquiryId', enquiryControllerObj.deleteEnquiry)

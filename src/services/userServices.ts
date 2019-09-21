@@ -16,7 +16,7 @@ export class UserServices {
             console.log(err);
             return err;
         }
-    }
+    } l̥
 
     public static async login(req: express.Request, res: express.Response) {
         try {
@@ -52,16 +52,16 @@ export class UserServices {
         }
     }
 
-    public static async getUser(req:express.Request, res:express.Response){
-        try{
+    public static async getUser(req: express.Request, res: express.Response) {
+        try {
             let user = await userModel.findById(req.params.userId).exec();
             return user;
         }
-        catch(err){
+        catch (err) {
             console.log(err);
             return err;
         }
-        
+
     }
     public static async updateUser(req: express.Request, res: express.Response) {
         try {
