@@ -1,13 +1,12 @@
 import * as mongoose from "mongoose";
 const trainerSchema = new mongoose.Schema({
-    username: {type: String, required: true, unique: true},
-    password: String,
-    mobile: String,
-    email: String,
+    userId: {type: Number, required: true, unique: true},
+    name: String,
+    salary: String,
+    availability:{classType: String, enum:['Weekdays Morning','Weekdays Evening', 'Weekend', 'All Weekdays', 'Both'],customTime: String},
     active : Boolean,
     createdDate: {type: Date, default:Date.now},
-    updatedDate: {type: Date, default:Date.now},
-    role: {type:String , enum: ['admin','trainer','student','super-admin']}
+    updatedDate: {type: Date, default:Date.now}
 });
 
 export const trainerModel = mongoose.model('trainer',trainerSchema); 

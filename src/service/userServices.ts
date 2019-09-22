@@ -99,8 +99,7 @@ export class UserService{
                     }
 
                     let token = await jwt.sign(payload,"secretkey",options);
-                    return {"token" : token,
-                            "detail" : payload} ;
+                    return  token;
                     // "login success";
                 }
                 else{

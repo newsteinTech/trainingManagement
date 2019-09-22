@@ -12,7 +12,7 @@ export class AuthenticateService{
         try {
             let decodedData = await jwt.verify(token,"secretkey");
             req.user = decodedData;
-            console.log(req.user);
+            //console.log(req.user);
             next();
         } catch (err) {
             console.log(err);

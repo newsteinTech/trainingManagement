@@ -1,9 +1,11 @@
 import * as express from "express";
 import {adminModel} from "./../modal/adminModal";
+import {userModel} from "./../modal/userModal";
 export class AdminService{
     public static async getAllAdmin(req: express.Request, res: express.Response){
         try{
-            let allAdmin = await adminModel.find().exec();
+            let allAdmin = await userModel.find({role:"admin"}).exec();
+            console.log(allAdmin);
             return allAdmin;
         }
         catch(err){
