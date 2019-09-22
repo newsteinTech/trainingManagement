@@ -28,9 +28,9 @@ export class Routes {
         app.post('/register', userControllerobj.registerUser);
         app.post('/userLogin', userControllerobj.login);
         app.post('/enquiry', enquiryControllerObj.newEnquiry)
-        app.post('./trainerLogin', TrainerController.trainerLogin);
-        app.get('./allCourses', courseControllerObj.getAllCourses);
-        app.get('./getCourse', courseControllerObj.getCourseById)
+        app.post('/trainerLogin', TrainerController.trainerLogin);
+        app.get('/allCourses', courseControllerObj.getAllCourses);
+        app.get('/getCourse', courseControllerObj.getCourseById)
         app.use(AuthenticationService.authenticate);
         app.use('/user', userRoutes);
         app.use('/trainer', trainerRoutes);

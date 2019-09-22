@@ -16,7 +16,7 @@ export class UserServices {
             console.log(err);
             return err;
         }
-    } l̥
+    }
 
     public static async login(req: express.Request, res: express.Response) {
         try {

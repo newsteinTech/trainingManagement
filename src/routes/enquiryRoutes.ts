@@ -7,4 +7,4 @@ let enquiryControllerObj = new EnquiryController;
 
 enquiryRoutes.get('/allEnquiries', enquiryControllerObj.getAllEnquiries);
 enquiryRoutes.get('/getEnuiry/:enquiryId', enquiryControllerObj.getEnquiryById);
-enquiryRoutes.put('/deleteEnquiry/:enquiryId', enquiryControllerObj.deleteEnquiry)
+enquiryRoutes.delete('/deleteEnquiry/:enquiryId', enquiryControllerObj.deleteEnquiry)

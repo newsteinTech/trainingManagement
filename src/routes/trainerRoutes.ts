@@ -8,4 +8,4 @@ trainerRoutes.post('/createTrainer', trainerControllerObj.createTrainer);
 trainerRoutes.get('/getAllTrainer', trainerControllerObj.getAllTrainers);
 trainerRoutes.get('/getTrainer/:trainerId', trainerControllerObj.getTrainerById);
 trainerRoutes.put('/updateTrainer/:trainerId', trainerControllerObj.updateTrainer);
-trainerRoutes.put('/deleteTrainer/:trainerId', trainerControllerObj.deleteTrainer);
+trainerRoutes.delete('/deleteTrainer/:trainerId', trainerControllerObj.deleteTrainer);

@@ -8,4 +8,4 @@ export const userRoutes: Router = Router();
 userRoutes.get('/getAllUsers', userControllerObj.getAllUsers);
 userRoutes.get('/getUser/:userId', userControllerObj.getUser)
 userRoutes.put('/update/:userId', userControllerObj.updateUser);
-userRoutes.put('/delete/:userId', userControllerObj.deleteUser);
+userRoutes.delete('/delete/:userId', userControllerObj.deleteUser);

@@ -6,4 +6,4 @@ export const courseRoutes: Router = Router();
 let courseControllerObj = new CourseController;
 
 courseRoutes.get('/updateCourse', courseControllerObj.updateCourse);
-courseRoutes.get('/deleteCourse', courseControllerObj.deleteCourse);
+courseRoutes.delete('/deleteCourse', courseControllerObj.deleteCourse);
