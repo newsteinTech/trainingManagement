@@ -4,8 +4,7 @@ const EnquirySchema = new mongoose.Schema({
     "Name": { type: String, required: true },
     "Email": { type: String, required: true },
     "Mobile": { type: Number, required: true },
-    "Courses": {Type:{type:String, enum:['Online', 'Offline']}, courseName:{type:String}}
-    ,
+    "Courses": {Type:{type:String, enum:['Online', 'Offline']}, courseName:{type:String}},
     "Message": String,
     "CreatedDate": { type: Date.now },
     "UpdatedDate": { type: Date.now },
