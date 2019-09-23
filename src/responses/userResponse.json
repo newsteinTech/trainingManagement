@@ -1,0 +1,128 @@
+{
+    "Create User": {
+        "API Name": "createUser",
+        "url": "localhost:4000/register",
+        "type": "post",
+        "requested-Body": {
+            "UserName": "Rahul",
+            "Password": "qwerty",
+            "Mobile": 78901,
+            "Email": "rahul@gmail.com",
+            "IsActive": true,
+            "Role": "admin"
+        },
+        "response": {}
+    },
+    "login": {
+        "API Name": "userLogin",
+        "url": "localhost:4000/userLogin",
+        "type": "post",
+        "requested-Body": {
+            "UserName": "Abdal",
+            "Password": "Wwewt"
+        },
+        "response": " {}, Token is : eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpYXQiOjE1NjkyMDQ2NTUsImV4cCI6MTU2OTIxNTQ1NX0.KnbEPjJnScBbHU6RwJjMf7m6bjBrtWJnEZ-qohWIm6E"
+    },
+    "Get All Users": {
+        "API Name": "getAllUsers",
+        "url": "localhost:4000/user/getAllUsers",
+        "type": "get",
+        "requested-Body": "None",
+        "response": [
+            {
+                "_id": "5d80ec680097454528f7f4cc",
+                "UserName": "Abdal",
+                "Password": "$2b$14$TGGMDDEhf7RlLhr8l.yrIOvL1A8yqOCcmCKyA.KEwHcDvHLNFyCEW",
+                "Mobile": 12345,
+                "Email": "abdal@gmail.com",
+                "IsActive": true,
+                "Role": "superAdmin",
+                "CreatedDate": "2019-09-17T14:23:36.483Z",
+                "UpdatedDate": "2019-09-17T14:23:36.483Z",
+                "__v": 0
+            },
+            {
+                "_id": "5d882743ae846424dc9ad52f",
+                "UserName": "Rahul",
+                "Password": "$2b$14$GIN3R4bdVjedy6QTOYvoBOZjikF2YNy0nMKPTPrKA7hI28b4Ip412",
+                "Mobile": 78901,
+                "Email": "rahul@gmail.com",
+                "IsActive": true,
+                "Role": "admin",
+                "CreatedDate": "2019-09-23T02:00:35.750Z",
+                "__v": 0
+            },
+            {
+                "_id": "5d882bcbae846424dc9ad534",
+                "UserName": "Pooja",
+                "Password": "$2b$14$GhvGB3Cs3X8HQdWjxux2/OaA8.SSlRfkFJQwCSqmU37sicC0IWkdy",
+                "Mobile": 91825,
+                "Email": "pooja@gmail.com",
+                "IsActive": true,
+                "Role": "admin",
+                "CreatedDate": "2019-09-23T02:19:55.833Z",
+                "__v": 0
+            },
+            {
+                "_id": "5d882bf6ae846424dc9ad535",
+                "UserName": "John",
+                "Password": "$2b$14$hVMjtIfK2/to90Tp7DWAMuu0RuS/m1vgAv5gHYq4Su1iFpYBaPUNK",
+                "Mobile": 18237,
+                "Email": "john@gmail.com",
+                "IsActive": true,
+                "Role": "admin",
+                "CreatedDate": "2019-09-23T02:20:38.633Z",
+                "__v": 0
+            },
+            {
+                "_id": "5d882c1aae846424dc9ad536",
+                "UserName": "Jane",
+                "Password": "$2b$14$WAiJGBzMMk/gMi/DMncCyetQjl0VjBQhq2YS/ccfAuU4XDIG.miA.",
+                "Mobile": 72410,
+                "Email": "jane@gmail.com",
+                "IsActive": true,
+                "Role": "admin",
+                "CreatedDate": "2019-09-23T02:21:14.699Z",
+                "__v": 0
+            }
+        ]
+    },
+    "Get User By Id": {
+        "API Name": "getUserById",
+        "url": "localhost:4000/user/getUser/5d882bf6ae846424dc9ad535",
+        "type": "get",
+        "requested-Body": "None",
+        "response": {
+            "_id": "5d882bf6ae846424dc9ad535",
+            "UserName": "John",
+            "Password": "$2b$14$hVMjtIfK2/to90Tp7DWAMuu0RuS/m1vgAv5gHYq4Su1iFpYBaPUNK",
+            "Mobile": 18237,
+            "Email": "john@gmail.com",
+            "IsActive": true,
+            "Role": "admin",
+            "CreatedDate": "2019-09-23T02:20:38.633Z",
+            "__v": 0
+        }
+    },
+    "update User By Id": {
+        "API Name": "updateUserById",
+        "url": "localhost:4000/user/update/5d882bf6ae846424dc9ad535",
+        "type": "PUT",
+        "requested-Body": {
+            "UserName": "Johnson",
+            "Password": "updatedpass",
+            "Mobile": 78901,
+            "Email": "johndoe@gmail.com",
+            "IsActive": true,
+            "Role": "admin"
+        },
+        "response": "**The User was successfully updated**"
+    },
+    "delete User": {
+        "API Name": "updateUserById",
+        "url": "localhost:4000/user/delete/5d882c1aae846424dc9ad536",
+        "type": "DELETE",
+        "requested-Body": "None",
+        "response": "**The user sent with the ID got deleted**"
+    }
+}

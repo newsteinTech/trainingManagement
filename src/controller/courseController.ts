@@ -1,5 +1,5 @@
 import * as express from "express";
-import { CourseServices } from "services/courseServices";
+import { CourseServices } from "../services/courseServices";
 
 export class CourseController {
 

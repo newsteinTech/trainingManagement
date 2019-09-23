@@ -1,5 +1,5 @@
 import * as express from "express";
-import { EnquiryServices } from "services/enquiryServices";
+import { EnquiryServices } from "../services/enquiryServices";
 
 export class EnquiryController {
 

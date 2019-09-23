@@ -1,5 +1,5 @@
 import { Router } from "express";
-import { EnquiryController } from "controller/enquiryController";
+import { EnquiryController } from "../controller/enquiryController";
 
 export const enquiryRoutes: Router = Router()
 

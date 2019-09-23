@@ -82,7 +82,7 @@ export class UserServices {
 
     public static async deleteUser(req: express.Request, res: express.Response) {
         try {
-            let deleteUser = await userModel.deleteOne(req.params.userId).exec();
+            let deleteUser = await userModel.findByIdAndDelete(req.params.userId).exec();
             return deleteUser;
         } catch (err) {
             console.log(err);

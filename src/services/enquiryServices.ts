@@ -1,5 +1,5 @@
 import * as express from "express";
-import { EnquiryModel } from "model/enquiryModel";
+import { EnquiryModel } from "../model/enquiryModel";
 
 
 export class EnquiryServices {

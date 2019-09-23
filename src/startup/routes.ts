@@ -2,12 +2,12 @@ import * as express from "express";
 import { userController } from "../controller/userController";
 import { AuthenticationService } from "../middleware/authentication";
 import { userRoutes } from '../routes/userRoutes'
-import { trainerRoutes } from "routes/trainerRoutes";
-import { TrainerController } from "controller/trainerController";
-import { EnquiryController } from "controller/enquiryController";
-import { enquiryRoutes } from "routes/enquiryRoutes";
-import { CourseController } from "controller/courseController";
-import { courseRoutes } from "routes/courseRoutes";
+import { trainerRoutes } from "../routes/trainerRoutes";
+import { TrainerController } from "../controller/trainerController";
+import { EnquiryController } from "../controller/enquiryController";
+import { enquiryRoutes } from "../routes/enquiryRoutes";
+import { CourseController } from "../controller/courseController";
+import { courseRoutes } from "../routes/courseRoutes";
 export class Routes {
 
     constructor() {
@@ -35,6 +35,6 @@ export class Routes {
         app.use('/user', userRoutes);
         app.use('/trainer', trainerRoutes);
         app.use('/enquiry', enquiryRoutes);
-        app.use('./courses', courseRoutes);
+        app.use('/courses', courseRoutes);
     }
 }
