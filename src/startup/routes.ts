@@ -22,15 +22,18 @@ export class Routes {
         });
 
         let userControllerobj = new userController;
+        let trainerControllerObj = new TrainerController;
         let enquiryControllerObj = new EnquiryController;
         let courseControllerObj = new CourseController;
 
         app.post('/register', userControllerobj.registerUser);
+        app.post('/createTrainer', trainerControllerObj.createTrainer);
         app.post('/userLogin', userControllerobj.login);
+        app.post('/trainerLogin', trainerControllerObj.trainerLogin);
         app.post('/enquiry', enquiryControllerObj.newEnquiry)
-        app.post('/trainerLogin', TrainerController.trainerLogin);
         app.get('/allCourses', courseControllerObj.getAllCourses);
-        app.get('/getCourse', courseControllerObj.getCourseById)
+        app.get('/getCourse/:courseId', courseControllerObj.getCourseById);
+        app.get('/getCourseTrainers/:courseId', courseControllerObj.getCourseTrainers);
         app.use(AuthenticationService.authenticate);
         app.use('/user', userRoutes);
         app.use('/trainer', trainerRoutes);

@@ -1,0 +1,205 @@
+{
+    "Create Course":{
+        "API Name": "newCourse",
+        "url": "localhost:4000/courses/createCourse",
+        "type": "POST",
+        "requested-Body": {
+                "Name": "Full-Stack",
+                "Description": "Full Stack Web development with front end and Back end along with Database ",
+                "Link": "www.thecourse.com",
+                "IsActive": true,
+                "CourseType": "Both"
+            },
+        "response":{
+            "Trainers": [],
+            "_id": "5d89bc8f5984cd37d0ad9911",
+            "Name": "Full-Stack Web Development",
+            "Description": "Includes Front end and back end along with the DataBase",
+            "Link": "www.thecourse.com",
+            "IsActive": true,
+            "CourseType": "Both",
+            "CreatedDate": "2019-09-24T06:49:51.109Z",
+            "__v": 0
+        }
+    },
+
+    "Get All Courses" :{
+        "API Name": "getAllCourses",
+        "url": "localhost:4000/allCourses",
+        "type": "GET",
+        "requested-Body": "None",
+        "response":[
+            {
+                "Trainers": [],
+                "_id": "5d89bc8f5984cd37d0ad9911",
+                "Name": "Full-Stack Web Development",
+                "Description": "Includes Front end and back end along with the DataBase",
+                "Link": "www.thecourse.com",
+                "IsActive": true,
+                "CourseType": "Both",
+                "CreatedDate": "2019-09-24T06:49:51.109Z",
+                "__v": 0
+            },
+            {
+                "Trainers": [],
+                "_id": "5d89bcc35984cd37d0ad9912",
+                "Name": "Web Development Back end",
+                "Description": "Includes back end along with the DataBase",
+                "Link": "www.thecourse.com",
+                "IsActive": true,
+                "CourseType": "Both",
+                "CreatedDate": "2019-09-24T06:50:43.034Z",
+                "__v": 0
+            },
+            {
+                "Trainers": [],
+                "_id": "5d89bd065984cd37d0ad9913",
+                "Name": "Web Development front end",
+                "Description": "Includes front end creating responsive webpages",
+                "Link": "www.thecourse.com",
+                "IsActive": true,
+                "CourseType": "Both",
+                "CreatedDate": "2019-09-24T06:51:50.850Z",
+                "__v": 0
+            },
+            {
+                "Trainers": [],
+                "_id": "5d89bd405984cd37d0ad9914",
+                "Name": "Data Analysis",
+                "Description": "Data Analysis",
+                "Link": "www.thecourse.com",
+                "IsActive": true,
+                "CourseType": "Online",
+                "CreatedDate": "2019-09-24T06:52:48.353Z",
+                "__v": 0
+            },
+            {
+                "Trainers": [],
+                "_id": "5d89bd815984cd37d0ad9915",
+                "Name": "Machine Learning",
+                "Description": "learning the basics of python and continuing with the libraries required for performing complex operations",
+                "Link": "www.thecourse.com",
+                "IsActive": true,
+                "CourseType": "Offline",
+                "CreatedDate": "2019-09-24T06:53:53.219Z",
+                "__v": 0
+            }
+        ]    
+    },
+
+    "Get Course By Id" :{
+        "API Name": "getCourseById",
+        "url": "localhost:4000/getCourse/5d89bd405984cd37d0ad9914",
+        "type": "GET",
+        "requested-Body": "None",
+        "response" : {
+            "Trainers": [],
+            "_id": "5d89bd405984cd37d0ad9914",
+            "Name": "Data Analysis",
+            "Description": "Data Analysis",
+            "Link": "www.thecourse.com",
+            "IsActive": true,
+            "CourseType": "Online",
+            "CreatedDate": "2019-09-24T06:52:48.353Z",
+            "__v": 0
+        }
+    },
+
+    "Update Course By Id" :{
+        "API Name": "updateCourseById",
+        "url": "localhost:4000/getCourse/5d89bd405984cd37d0ad9914",
+        "type": "PUT",
+        "requested-Body": {
+            "Name": "Machine Learning - changed",
+            "Description": "learning the basics of python and continuing with the libraries required for performing complex operations -changed",
+            "Link": "www.thecourse.com",
+            "IsActive": true,
+            "CourseType": "Offline"
+        },
+        "response" :{
+            "Trainers": [],
+            "_id": "5d89bd815984cd37d0ad9915",
+            "Name": "Machine Learning",
+            "Description": "learning the basics of python and continuing with the libraries required for performing complex operations",
+            "Link": "www.thecourse.com",
+            "IsActive": true,
+            "CourseType": "Offline",
+            "CreatedDate": "2019-09-24T06:53:53.219Z",
+            "__v": 0
+        }
+    },
+
+    "Delete Course By Id" :{
+        "API Name": "deleteCourseById",
+        "url": "localhost:4000/deleteCourse/5d89bd405984cd37d0ad9914",
+        "type": "DELETE",
+        "requested-Body": "None",
+        "response" : "**requested course is deleted as per the given Id!!**"
+    },
+
+    "Add Trainers to Courses" :{
+        "API Name": "addCourseByObjectId",
+        "url": "localhost:4000/courses/assignTrainers/5d89bc8f5984cd37d0ad9911",
+        "type": "PUT",
+        "requested-Body": {
+            "Trainers" : ["5d8842d7391aae07d0ccdf76", "5d8843c33d09e93820baf767"]
+        },
+        "response" : {
+            "Trainers": [],
+            "_id": "5d89bc8f5984cd37d0ad9911",
+            "Name": "Full-Stack Web Development",
+            "Description": "Includes Front end and back end along with the DataBase",
+            "Link": "www.thecourse.com",
+            "IsActive": true,
+            "CourseType": "Both",
+            "CreatedDate": "2019-09-24T06:49:51.109Z",
+            "__v": 0
+        }
+    },
+    
+    "Get Trainers assigned to Courses" :{
+        "API Name": "addCourseByObjectId",
+        "url": "localhost:4000//5d89bc8f5984cd37d0ad9911",
+        "type": "PUT",
+        "requested-Body": {
+            "Trainers" : ["5d8842d7391aae07d0ccdf76", "5d8843c33d09e93820baf77"]
+        },
+        "response" : {
+            "Trainers": [
+                {
+                    "_id": "5d8842d7391aae07d0ccdf76",
+                    "TrainerName": "qazi",
+                    "Password": "$2b$14$atGQyO6AzZITxzVZljgM2OrmJFN/kIjl.EfBEv/VndFBTPouRXTam",
+                    "Email": "qazi@gmail.com",
+                    "Salary": 43000,
+                    "IsActive": true,
+                    "Availability": "Both",
+                    "Slot": "Both-Evening",
+                    "Time": "4pm - 9pm",
+                    "CreatedDate": "2019-09-23T03:58:15.756Z",
+                    "__v": 0
+                },
+                {
+                    "_id": "5d88430d391aae07d0ccdf77",
+                    "TrainerName": "Hitesh",
+                    "Password": "$2b$14$AJ9FCuB6zkeEUp5MImMRPOd9ayQbsbcvLvRiIF9s.p5tpB.qdfK7e",
+                    "Email": "hitesh@gmail.com",
+                    "Salary": 35000,
+                    "IsActive": true,
+                    "Availability": "All-Weekdays",
+                    "Slot": "Weekdays-Morning",
+                    "Time": "9am - 1pm",
+                    "CreatedDate": "2019-09-23T03:59:09.353Z",
+                    "__v": 0
+                }
+            ],
+            "_id": "5d89cdf5425d5c37882fde1c",
+            "Name": "Full-Stack",
+            "Description": "Full Stack Web development with front end and Back end along with Database ",
+            "Link": "www.thecourse.com",
+            "IsActive": true,
+            "CourseType": "Both",
+            "CreatedDate": "2019-09-24T08:04:05.359Z",
+            "__v": 0
+        }
+}

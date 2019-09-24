@@ -7,7 +7,7 @@ const courseSchema = new mongoose.Schema({
     "IsActive": { type: Boolean, required: true },
     "CreatedDate": { type: Date, default: Date.now },
     "UpdatedDate": { type: Date },
-    "Trainers": { type: String, required: true },
+    "Trainers": [{ type:mongoose.SchemaTypes.ObjectId, ref : 'Trainer' }],
     "CourseType": { type: String, enum: ["Online", "Offline", "Both"] }
 })
 

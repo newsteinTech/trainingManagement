@@ -17,7 +17,7 @@ export class CourseServices {
 
     public static async getAllCourses(req: express.Request, res: express.Response) {
         try {
-            let allCourses = await CourseModel.find().exec();
+            let allCourses = await CourseModel.find().populate('trainer').exec();
             return allCourses
         }
         catch (err) {
@@ -37,9 +37,31 @@ export class CourseServices {
         }
     }
 
+    public static async assignTrainersToCourse(req:any,res:express.Response){
+        try{
+            let assignedCards = await CourseModel.findByIdAndUpdate(req.params.courseId, req.body).exec();
+            return (assignedCards);
+        }
+        catch(err){
+            console.log(err);
+            return(err);
+        }
+    }
+
+    public static async getCourseTrainers(req:express.Request, res:express.Response){
+        try{
+            let courseTrainers = await CourseModel.findById(req.params.courseId).populate('Trainers').exec();
+            return courseTrainers
+        }
+        catch(err){
+            console.log(err);
+            return err;
+        }
+    }
+
     public static async updateCourseById(req: express.Request, res: express.Response) {
         try {
-            let UpdateCourse = await CourseModel.updateOne(req.params.courseId, req.body).exec();
+            let UpdateCourse = await CourseModel.findByIdAndUpdate(req.params.courseId, req.body).exec();
             return UpdateCourse;
         }
         catch (err) {

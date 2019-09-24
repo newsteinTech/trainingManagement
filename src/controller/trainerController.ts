@@ -8,8 +8,8 @@ export class TrainerController {
         res.json(result);
     }
 
-    public static async trainerLogin(req: express.Request, res: express.Response) {
-        let result = TrainerServices.trainerLogin(req, res);
+    public async trainerLogin(req: express.Request, res: express.Response) {
+        let result = await TrainerServices.trainerLogin(req, res);
         res.json(result)
     }
 

@@ -2,6 +2,7 @@ import * as express from "express";
 import * as bcrypt from "bcrypt";
 import { TrainerModel } from "../model/trainerModel";
 import * as jwt from "jsonwebtoken";
+import { CourseModel } from "../model/courseModel";
 export class TrainerServices {
 
     public static async createTrainer(req: express.Request, res: express.Response) {
@@ -20,26 +21,22 @@ export class TrainerServices {
 
     public static async trainerLogin(req: express.Request, res: express.Response) {
         try {
-            let trainerItem: any = TrainerModel.findOne({ email: req.body.email }).exec();
+            let trainerItem: any = await TrainerModel.findOne({email:req.body.email}).exec();
             if (trainerItem) {
                 let passwordsMatch = await bcrypt.compare(req.body.Password, trainerItem.Password);
                 if (passwordsMatch) {
                     let options: jwt.SignOptions = { expiresIn: "4h" };
-                    let payLoad = { "email": trainerItem.email, "name": trainerItem.name };
+                    let payLoad = { "email": trainerItem.email, "name": trainerItem.TrainerName };                    
                     let token = await jwt.sign(payLoad, "secret", options);
                     console.log("Token : ", token)
                     return { "token": token }
-                }
-                else {
+                }else {
                     return ("Password incorrect ...! try again")
                 }
-
-            }
-            else {
+            }else {
                 return "access denied!"
             }
-        }
-        catch (err) {
+        }catch (err) {
             console.log(err);
             return err;
         }
@@ -56,6 +53,17 @@ export class TrainerServices {
         }
     }
 
+    public static async assignCourses(req:any, res: express.Response){
+        try{
+            let assignedTrainers = await CourseModel.update({_id:req.trainer.trainerId}, req.body).exec();
+            return (assignedTrainers)
+        }catch(err){
+            console.log(err);
+            return err;
+        }
+    }
+
+
     public static async getTrainerById(req: express.Request, res: express.Response) {
         try {
             let trainer = await TrainerModel.findById(req.params.trainerId).exec();
@@ -69,7 +77,7 @@ export class TrainerServices {
 
     public static async updateTrainerById(req: express.Request, res: express.Response) {
         try {
-            let updateTrainer = await TrainerModel.updateOne(req.params.trainerId, req.body).exec();
+            let updateTrainer = await TrainerModel.findByIdAndUpdate(req.params.trainerId, req.body).exec();
             return updateTrainer
         }
         catch (err) {
@@ -80,7 +88,7 @@ export class TrainerServices {
 
     public static async deleteTrainer(req: express.Request, res: express.Response) {
         try {
-            let deleteTrainer = await TrainerModel.deleteOne(req.params.trainerId).exec();
+            let deleteTrainer = await TrainerModel.findByIdAndDelete(req.params.trainerId).exec();
         }
         catch (err) {
             console.log(err);

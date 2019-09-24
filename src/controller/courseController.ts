@@ -10,17 +10,27 @@ export class CourseController {
 
     public async getAllCourses(req: express.Request, res: express.Response) {
         let result = await CourseServices.getAllCourses(req, res);
-        res.json(result)
+        res.json(result);
     }
 
     public async getCourseById(req: express.Request, res: express.Response) {
         let result = await CourseServices.getCourseById(req, res);
-        res.json(result)
+        res.json(result);
+    }
+
+    public async assignTrainersToCourses(req:express.Request, res:express.Response){
+        let result = await CourseServices.assignTrainersToCourse(req, res);
+        res.json(result);
+    }
+
+    public async getCourseTrainers(req:express.Request, res: express.Response){
+        let result = await CourseServices.getCourseTrainers(req, res);
+        res.json(result);
     }
 
     public async updateCourse(req: express.Request, res: express.Response) {
         let result = await CourseServices.updateCourseById(req, res);
-        res.json(result)
+        res.json(result);
     }
 
     public async deleteCourse(req: express.Request, res: express.Response) {

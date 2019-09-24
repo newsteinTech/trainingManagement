@@ -10,30 +10,33 @@ export class UserServices {
             req.body.Password = encryptedPassword;
             let newUser = new userModel(req.body);
             await newUser.save();
-            return newUser;
+            return (newUser);
         }
         catch (err) {
             console.log(err);
-            return err;
+            return (err);
         }
     }
 
     public static async login(req: express.Request, res: express.Response) {
         try {
-            let userItem: any = await userModel.findOne({ email: req.body.email }).exec();
+            let userItem: any = await userModel.findOne({ Email: req.body.Email }).exec();
             if (userItem) {
                 let passwordMatch = await bcrypt.compare(req.body.Password, userItem.Password);
                 if (passwordMatch) {
-                    let options: jwt.SignOptions = { expiresIn: "3h" };
-                    let payLoad = { "email": userItem.email, "name": userItem.name };
+                    let options: jwt.SignOptions = { expiresIn: "12h" };
+                    let payLoad = { "email": userItem.Email, "name": userItem.Name };
                     let token = await jwt.sign(payLoad, "secret", options);
                     console.log("Token is : " + token);
-                    return { "token": token }
+                    return ({ "token": token });
                 } else {
-                    return "Password Incorrect... Please enter the correct Password";
+                    console.log("Password Incorrect... Please enter the correct Password");
+                    return ("Password Incorrect... Please enter the correct Password");
                 }
             } else {
-                return "User not registered..!!"
+                console.log("User not registered by given Email");
+                
+                return ("User not registered..!!");
             }
         }
         catch (err) {
@@ -48,7 +51,7 @@ export class UserServices {
             return allUsers;
         } catch (err) {
             console.log(err);
-            return err;
+            return (err);
         }
     }
 
@@ -59,7 +62,7 @@ export class UserServices {
         }
         catch (err) {
             console.log(err);
-            return err;
+            return (err);
         }
 
     }
@@ -76,7 +79,7 @@ export class UserServices {
             return updateUser;
         } catch (err) {
             console.log(err);
-            return err;
+            return (err);
         }
     }
 
@@ -86,7 +89,7 @@ export class UserServices {
             return deleteUser;
         } catch (err) {
             console.log(err);
-            return err;
+            return (err);
         }
     }
 }  

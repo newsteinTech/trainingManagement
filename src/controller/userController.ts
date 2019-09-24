@@ -3,12 +3,12 @@ import { UserServices } from "../services/userServices";
 
 export class userController {
     public async registerUser(req: express.Request, res: express.Response) {
-        let result = UserServices.registerUser(req, res);
+        let result = await UserServices.registerUser(req, res);
         res.json(result)
     }
 
     public async login(req: express.Request, res: express.Response) {
-        let result = UserServices.login(req, res);
+        let result = await UserServices.login(req, res);
         res.json(result)
     }
 

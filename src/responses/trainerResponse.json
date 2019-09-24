@@ -1,0 +1,176 @@
+{
+    "Create Trainer":{
+        "API Name": "createTrainer",
+        "url": "localhost:4000/createTrainer",
+        "type": "POST",
+        "requested-Body": {
+            "TrainerName": "Hitesh",
+            "Password" : "trainer1",
+            "Email": "hitesh@gmail.com",
+            "Salary": 35000,
+            "IsActive": true,
+            "Availability": "All-Weekdays",
+            "Slot": "Weekdays-Morning",
+            "Time": "9am - 1pm"
+        },
+        "response": {
+            "_id": "5d88430d391aae07d0ccdf77",
+            "TrainerName": "Hitesh",
+            "Password": "$2b$14$AJ9FCuB6zkeEUp5MImMRPOd9ayQbsbcvLvRiIF9s.p5tpB.qdfK7e",
+            "Email": "hitesh@gmail.com",
+            "Salary": 35000,
+            "IsActive": true,
+            "Availability": "All-Weekdays",
+            "Slot": "Weekdays-Morning",
+            "Time": "9am - 1pm",
+            "CreatedDate": "2019-09-23T03:59:09.353Z",
+            "__v": 0
+        }
+    },
+    "Trainer Login" :{
+        "Create Trainer":{
+            "API Name": "trainerLogin",
+            "url": "localhost:4000/trainerLogin",
+            "type": "POST",
+            "requested-Body": {	
+                "TrainerName": "Hitesh",
+                "Password" : "trainer2",
+                "Email": "hitesh@gmail.com"
+            },
+            "response":{
+                "token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJuYW1lIjoicWF6aSIsImlhdCI6MTU2OTI0MTg3MCwiZXhwIjoxNTY5MjU2MjcwfQ.w1pBqfAtwNOIVkCRPXQ9IOOCoFClLZNSVmKJsGz4qEc"
+            }
+        }
+    },
+    "Get All Trainers" : {
+        "API Name": "getAllTrainer",
+        "url": "localhost:4000/getAllTrainer",
+        "type": "GET",
+        "requested-Body": "None",
+        "response":[
+            {
+                "_id": "5d8842d7391aae07d0ccdf76",
+                "TrainerName": "qazi",
+                "Password": "$2b$14$atGQyO6AzZITxzVZljgM2OrmJFN/kIjl.EfBEv/VndFBTPouRXTam",
+                "Email": "qazi@gmail.com",
+                "Salary": 43000,
+                "IsActive": true,
+                "Availability": "Both",
+                "Slot": "Both-Evening",
+                "Time": "4pm - 9pm",
+                "CreatedDate": "2019-09-23T03:58:15.756Z",
+                "__v": 0
+            },
+            {
+                "_id": "5d88430d391aae07d0ccdf77",
+                "TrainerName": "Hitesh",
+                "Password": "$2b$14$AJ9FCuB6zkeEUp5MImMRPOd9ayQbsbcvLvRiIF9s.p5tpB.qdfK7e",
+                "Email": "hitesh@gmail.com",
+                "Salary": 35000,
+                "IsActive": true,
+                "Availability": "All-Weekdays",
+                "Slot": "Weekdays-Morning",
+                "Time": "9am - 1pm",
+                "CreatedDate": "2019-09-23T03:59:09.353Z",
+                "__v": 0
+            },
+            {
+                "_id": "5d8843c33d09e93820baf767",
+                "TrainerName": "Doe",
+                "Password": "$2b$14$VKP4x0uoClxVxUYuHrUGq.hX5MCN2nLTl18nYV4eqcfJrExRbuda.",
+                "Email": "doe@gmail.com",
+                "Salary": 22000,
+                "IsActive": true,
+                "Availability": "Only-Weekends",
+                "Slot": "Weekends-Evening",
+                "Time": "4pm - 9pm",
+                "CreatedDate": "2019-09-23T04:02:11.337Z",
+                "__v": 0
+            },
+            {
+                "_id": "5d88448e3d09e93820baf76a",
+                "TrainerName": "Dae",
+                "Password": "$2b$14$1Zm9693yhSycUMZsOgaS/uLYNBRwbwTgGgE6TFTZnbGyiYadkZ8/m",
+                "Email": "dae@gmail.com",
+                "Salary": 29000,
+                "IsActive": true,
+                "Availability": "All-Weekdays",
+                "Slot": "Weekdays-Morning",
+                "Time": "10am - 3pm",
+                "CreatedDate": "2019-09-23T04:05:34.791Z",
+                "__v": 0
+            },
+            {
+                "_id": "5d88b7afb96bd91ba05f3288",
+                "TrainerName": "Sid",
+                "Password": "$2b$14$BlhaDkdXx9/OwuMZPDyl/e0eW.UGXKcKuJhz3sFxrBpJJO8AVio7u",
+                "Email": "sid@gmail.com",
+                "Salary": 11999,
+                "IsActive": true,
+                "Availability": "Both",
+                "Slot": "Both-Morning",
+                "Time": "9am - 1pm",
+                "CreatedDate": "2019-09-23T12:16:47.471Z",
+                "__v": 0
+            }
+        ]
+    },
+        
+
+    "Get Trainer By ID" :{
+        "API Name": "getTrainerByID",
+        "url": "localhost:4000/trainer/getTrainer/5d8843c33d09e93820baf767",
+        "type": "GET",
+        "requested-Body": "None",
+        "response": {
+            "_id": "5d8843c33d09e93820baf767",
+            "TrainerName": "Doe",
+            "Password": "$2b$14$VKP4x0uoClxVxUYuHrUGq.hX5MCN2nLTl18nYV4eqcfJrExRbuda.",
+            "Email": "doe@gmail.com",
+            "Salary": 22000,
+            "IsActive": true,
+            "Availability": "Only-Weekends",
+            "Slot": "Weekends-Evening",
+            "Time": "4pm - 9pm",
+            "CreatedDate": "2019-09-23T04:02:11.337Z",
+            "__v": 0
+        }
+    },
+
+    "Update Trainer By ID" :{
+        "API Name": "updateTrainerByID",
+        "url": "localhost:4000/trainer/updateTrainer/5d8843c33d09e93820baf767",
+        "type": "PUT",
+        "requested-Body": {
+            "TrainerName": "doeeeee",
+            "Password" : "changedPass",
+            "Email": "doeeeee@gmail.com",
+            "Salary": 35000,
+            "IsActive": true,
+            "Availability": "Only-Weekends",
+            "Slot": "Weekends-Morning",
+            "Time": "9am - 1pm"
+        },
+        "response": {
+            "_id": "5d8843c33d09e93820baf767",
+            "TrainerName": "doeeeee",
+            "Password": "changedPass",
+            "Email": "doeeeee@gmail.com",
+            "Salary": 35000,
+            "IsActive": true,
+            "Availability": "Only-Weekends",
+            "Slot": "Weekends-Morning",
+            "Time": "9am - 1pm",
+            "CreatedDate": "2019-09-23T04:02:11.337Z",
+            "__v": 0
+        }
+    },
+
+    "Delete Trainer By ID" :{
+        "API Name": "deleteTrainerByID",
+        "url": "localhost:4000/trainer/deleteTrainer/5d88448e3d09e93820baf76a",
+        "type": "DELETE",
+        "requested-Body": "None",
+        "response": "**the requested object was deleted"
+    }  
+}
