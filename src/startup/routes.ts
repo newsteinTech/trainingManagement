@@ -30,7 +30,7 @@ export class Routes {
         app.post('/createTrainer', trainerControllerObj.createTrainer);
         app.post('/userLogin', userControllerobj.login);
         app.post('/trainerLogin', trainerControllerObj.trainerLogin);
-        app.post('/enquiry', enquiryControllerObj.newEnquiry)
+        app.post('/newEnquiry', enquiryControllerObj.newEnquiry)
         app.get('/allCourses', courseControllerObj.getAllCourses);
         app.get('/getCourse/:courseId', courseControllerObj.getCourseById);
         app.get('/getCourseTrainers/:courseId', courseControllerObj.getCourseTrainers);

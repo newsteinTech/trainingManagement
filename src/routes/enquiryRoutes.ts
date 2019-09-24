@@ -6,5 +6,5 @@ export const enquiryRoutes: Router = Router()
 let enquiryControllerObj = new EnquiryController;
 
 enquiryRoutes.get('/allEnquiries', enquiryControllerObj.getAllEnquiries);
-enquiryRoutes.get('/getEnuiry/:enquiryId', enquiryControllerObj.getEnquiryById);
+enquiryRoutes.get('/getEnquiry/:enquiryId', enquiryControllerObj.getEnquiryById);
 enquiryRoutes.delete('/deleteEnquiry/:enquiryId', enquiryControllerObj.deleteEnquiry)

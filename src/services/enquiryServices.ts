@@ -40,7 +40,8 @@ export class EnquiryServices {
 
     public static async deleteEnquiry(req: express.Request, res: express.Response) {
         try {
-            let deleteTrainer = await EnquiryModel.deleteOne(req.params.enquiryId).exec();
+            let deleteEnquiry = await EnquiryModel.deleteOne(req.params.enquiryId).exec();
+            return deleteEnquiry
         }
         catch (err) {
             console.log(err);

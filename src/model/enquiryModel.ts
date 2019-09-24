@@ -2,7 +2,7 @@ import * as mongoose from "mongoose";
 
 const EnquirySchema = new mongoose.Schema({
     "Name": { type: String, required: true },
-    "Email": { type: String, required: true },
+    "Email": { type: String, required: true, unique: true},
     "Mobile": { type: Number, required: true },
     "Courses": {Type:{type:String, enum:['Online', 'Offline']}, courseName:{type:String}},
     "Message": String,

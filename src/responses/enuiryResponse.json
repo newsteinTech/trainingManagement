@@ -1,0 +1,114 @@
+{
+    "Create Enquiry":{
+        "API Name": "newEnquiry",
+        "url": "localhost:4000/newEnquiry",
+        "type": "POST",
+        "requested-Body": {
+            "Name": "Abdal",
+            "Email": "abdal@gmail.com",
+            "Mobile": 8792227822,
+            "Courses": {"Type" : "Online", "courseName" : "Web Development Back end"},
+            "Message": " I wanted to take a course in back end using node js online as i stay in a far place",
+            "IsActive": true
+        },
+        "response": {
+            "_id": "5d89f44d92b03d3d1c3fe18a",
+            "Name": "Abdal",
+            "Email": "abdal@gmail.com",
+            "Mobile": 8792227822,
+            "Courses": {
+                "Type": "Online",
+                "courseName": "Web Development Back end"
+            },
+            "Message": " I wanted to take a course in back end using node js online as i stay in a far place",
+            "IsActive": true,
+            "CreatedDate": "2019-09-24T10:47:41.386Z",
+            "Follow-Ups": [],
+            "__v": 0
+        }
+    },
+
+    "Get All Enquiries":{
+        "API Name": "getAllEnquiries",
+        "url": "localhost:4000/enquiry/allEnquiries",
+        "type": "GET",
+        "requested-Body": "None",
+        "response":[
+            {
+                "Courses": {
+                    "Type": "Online",
+                    "courseName": "Web Development Back end"
+                },
+                "_id": "5d89f44d92b03d3d1c3fe18a",
+                "Name": "Abdal",
+                "Email": "abdal@gmail.com",
+                "Mobile": 8792227822,
+                "Message": " I wanted to take a course in back end using node js online as i stay in a far place",
+                "IsActive": true,
+                "CreatedDate": "2019-09-24T10:47:41.386Z",
+                "Follow-Ups": [],
+                "__v": 0
+            },
+            {
+                "Courses": {
+                    "Type": "Offline",
+                    "courseName": "Web Development Front end"
+                },
+                "_id": "5d89f53892b03d3d1c3fe18b",
+                "Name": "Sammy",
+                "Email": "sammy@gmail.com",
+                "Mobile": 87624310,
+                "Message": " I wanted to take a course in front end using Angular js",
+                "IsActive": true,
+                "CreatedDate": "2019-09-24T10:51:36.146Z",
+                "Follow-Ups": [],
+                "__v": 0
+            },
+            {
+                "Courses": {
+                    "Type": "Offline",
+                    "courseName": "Full-Stack"
+                },
+                "_id": "5d89f59992b03d3d1c3fe18c",
+                "Name": "joey",
+                "Email": "joey@gmail.com",
+                "Mobile": 76132907,
+                "Message": " I wanted to take a course in Mean Stack",
+                "IsActive": true,
+                "CreatedDate": "2019-09-24T10:53:13.482Z",
+                "Follow-Ups": [],
+                "__v": 0
+            }
+        ]
+    },
+
+    "Get Enquiry by Id" :{
+        "API Name": "getEnquiryById",
+        "url": "localhost:4000/enquiry/getEnquiry/5d89f53892b03d3d1c3fe18b",
+        "type": "GET",
+        "requested-Body": "None",
+        "response":{
+            "Courses": {
+                "Type": "Offline",
+                "courseName": "Web Development Front end"
+            },
+            "_id": "5d89f53892b03d3d1c3fe18b",
+            "Name": "Sammy",
+            "Email": "sammy@gmail.com",
+            "Mobile": 87624310,
+            "Message": " I wanted to take a course in front end using Angular js",
+            "IsActive": true,
+            "CreatedDate": "2019-09-24T10:51:36.146Z",
+            "Follow-Ups": [],
+            "__v": 0
+        }
+    },
+
+    "delete Enquiry":{
+        "API Name": "deleteEnquiry",
+        "url": "localhost:4000/enquiry/deleteEnquiry/5d89f53892b03d3d1c3fe18b",
+        "type": "DELETE",
+        "requested-Body": "None",
+        "response":"**The requested id is deleted**"
+    }
+}
