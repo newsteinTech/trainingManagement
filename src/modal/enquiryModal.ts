@@ -4,8 +4,9 @@ const enquirySchema = new mongoose.Schema({
     email: {type: String,required: true},
     mobile: String,
     message: String,
-    courses: String,
+    courses: {classType:{type:String, enum:['online','offline']},name:{type:String}},
     active : Boolean,
+    followups: [{createdDate:{type: Date,  default:Date.now}},{message:{type: String}}],
     createdDate: {type: Date, default:Date.now},
     updatedDate: {type: Date, default:Date.now},
     status: {type:String , enum: ['lead','Demo Scheduled']}
