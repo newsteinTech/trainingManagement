@@ -1,5 +1,7 @@
 import * as express from "express";
 import {trainerModel} from "./../modal/trainerModal";
+import {userModel} from "./../modal/userModal";
+import bcrypt = require("bcrypt");
 export class TrainerService{
     public static async getAllTrainer(req: express.Request, res: express.Response){
         try{
@@ -41,9 +43,11 @@ export class TrainerService{
     
     public static async createTrainer(req:express.Request, res:express.Response){
         try{
-            let createTrainer = new trainerModel(req.body);
-            await createTrainer.save();
-            return createTrainer;
+            let encyptPassword = await bcrypt.hash(req.body.password, 12);
+            req.body.password = encyptPassword;
+            let createUser = new userModel(req.body);
+            await createUser.save();
+            return createUser;
         }catch(err){
             console.log(err);
             return err;

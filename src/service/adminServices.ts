@@ -1,6 +1,7 @@
 import * as express from "express";
 import {adminModel} from "./../modal/adminModal";
 import {userModel} from "./../modal/userModal";
+import bcrypt = require("bcrypt");
 export class AdminService{
     public static async getAllAdmin(req: express.Request, res: express.Response){
         try{
@@ -43,9 +44,11 @@ export class AdminService{
     
     public static async createAdmin(req:express.Request, res:express.Response){
         try{
-            let createAdmin = new adminModel(req.body);
-            await createAdmin.save();
-            return createAdmin;
+            let encyptPassword = await bcrypt.hash(req.body.password, 12);
+            req.body.password = encyptPassword;
+            let createUser = new userModel(req.body);
+            await createUser.save();
+            return createUser;
         }catch(err){
             console.log(err);
             return err;

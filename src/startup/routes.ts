@@ -9,6 +9,7 @@ import { EnquiryRoutes } from "./../routes/enquiryRoutes";
 import { EnquiryController } from "./../controller/EnquiryController";
 import { CoursesController } from "./../controller/coursesController";
 import { CoursesRoutes } from "./../routes/coursesRoutes";
+import { UserRoutes } from "./../routes/userRoutes";
 let userControllerObj = new UserController();
 let enquiryControllerObj = new EnquiryController();
 let coursesControllerObj = new CoursesController();
@@ -34,6 +35,7 @@ export class Routes{
         app.use('/superAdmin',SuperAdminRoutes);        
         app.use('/trainer',TrainerRoutes);
         app.use('/enquiryDetails',EnquiryRoutes);
-        app.use('/coursesDetails',CoursesRoutes);       
+        app.use('/coursesDetails',CoursesRoutes); 
+        app.use('/user',UserRoutes);      
     }
 }
