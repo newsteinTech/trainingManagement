@@ -1,7 +1,8 @@
 import * as express from "express";
 import * as bodyParser from "body-parser";
 import { Database } from "./startup/db";
-import { Routes } from './startup/routes'
+import { Routes } from './startup/routes';
+import * as cors from 'cors'
 
 class App {
     app: express.Application;
@@ -10,10 +11,10 @@ class App {
         this.app = express();
         this.configBodyParser();
         Database.connectMongoDb();
-        this.app.listen(4000, "localhost", function () {
+        this.app.listen(3000, "localhost", function () {
             console.log("Listening to localhost port 4000");
         });
-
+        this.app.use(cors())
 
         Routes.registerRoutes(this.app);
     }
@@ -23,7 +24,7 @@ class App {
         this.app.use(bodyParser.urlencoded({ extended: false }));
     }
 
-
+    
 }
 
 const trainingManagementApp = new App();

@@ -8,7 +8,7 @@ const userSchema = new mongoose.Schema({
     "IsActive": {type:Boolean, required:true},
     "CreatedDate": { type: Date, default: Date.now },
     "UpdatedDate": { type: Date },
-    "Role": { type: String, enum : ['superAdmin', 'admin'], required:true }
+    "Role": { type: String, enum : ['superAdmin', 'admin'] }
 })
 
 export const userModel = mongoose.model('user', userSchema);
