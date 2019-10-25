@@ -12,7 +12,7 @@ class App {
         this.configBodyParser();
         Database.connectMongoDb();
         this.app.listen(3000, "localhost", function () {
-            console.log("Listening to localhost port 4000");
+            console.log("Listening to localhost port 3000");
         });
         this.app.use(cors())
 

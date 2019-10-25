@@ -1,7 +1,7 @@
 import * as mongoose from "mongoose";
 
 export class Database {
-    private static readonly mongoDbUrl: string = "mongodb://localhost:27017/trainingManagement";
+    private static readonly mongoDbUrl: string = "mongodb+srv://abdalpasha:abdal123@abdal-s91co.mongodb.net/SignUp?retryWrites=true&w=majority";
 
     public static connectMongoDb() {
         mongoose.connect(this.mongoDbUrl, { useNewUrlParser: true }).then(
